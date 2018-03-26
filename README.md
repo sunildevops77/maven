@@ -3,5 +3,4 @@
 Sample maven code
 
 
-Develper made changes to the code
-`
+Changes donw for the upcoming build
