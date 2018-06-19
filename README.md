@@ -1,2 +1,4 @@
 # maven-project
-changes donw on the code
+
+
+these changes are done by dev and then pushed into git
