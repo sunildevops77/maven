@@ -1,3 +1,2 @@
 # maven-project
-
-Some change donw by developer
+Some more changes done by the developer
