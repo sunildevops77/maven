@@ -1,5 +1,4 @@
 # maven-project
-Some more changes done by the developer
 
 
-some more changed done
+Changes done to be pushed into github
