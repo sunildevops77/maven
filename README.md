@@ -1,4 +1,2 @@
-new changed done on the master branch
-bbbbbbbbbbbb
+New changes done by developer
 
-ddddddddddddddddddddddaaaaaaaaabbbbbbbdddddddba
