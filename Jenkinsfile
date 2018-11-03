@@ -11,25 +11,17 @@ node('master')
     }
     stage('ContinuousDeployment')
     {
-        sh 'scp /home/vagrant/.jenkins/workspace/ScriptedPipeline
-		       /webapp/target/webapp.war vagrant@10.0.0.5:/var/lib
-			                              /tomcat7/webapps/qaenv.war'
+        sh 'scp /home/vagrant/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war vagrant@10.0.0.5:/var/lib/tomcat7/webapps/qaenv.war'
     }
     stage('ContinuousTesting')
     {
-        git 'https://github.com/selenium-saikrishna/Functional
-		                                                 Testing.git'
+        git 'https://github.com/selenium-saikrishna/FunctionalTesting.git'
 
     }
     stage('ContinuousDelivery')
     {
-        input message: 'Waiting for approval from the DM', 
-		                                          submitter: 'Ravi'
-        sh 'scp /home/vagrant/.jenkins/workspace/ScriptedPipeline
-		         /webapp/target/webapp.war vagrant@10.0.0.6:/var/lib
-				                         /tomcat7/webapps/prodenv.war'
+        input message: 'Waiting for approval from the DM',submitter: 'Ravi'
+        sh 'scp /home/vagrant/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war vagrant@10.0.0.6:/var/lib/tomcat7/webapps/prodenv.war'
     }
 }
-
-
 
