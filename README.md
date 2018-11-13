@@ -1,2 +1,3 @@
-New changes
-done for a new commit
+new changes
+done by developers
+
