@@ -1,27 +1,22 @@
 
 node('master') 
 {
-    stage('ContinuousDownload') 
+    stage('ContinuousDownload-Loans') 
     {
        git 'https://github.com/selenium-saikrishna/maven.git'
 
     }
-    stage('ContinuousBuild') 
+    stage('ContinuousBuild-Loans') 
     {
       sh 'mvn package'
     }
-    stage('ContinuousDeployment')
+    stage('ContinuousDeployment-Loans')
     {
-        sh 'scp /home/vagrant/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war vagrant@10.1.1.5:/var/lib/tomcat7/webapps/qaenv.war'
+        sh 'scp /home/vagrant/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war vagrant@10.1.1.5:/var/lib/tomcat7/webapps/loansenv.war'
     }
-    stage('Continuoustesting')
+    stage('Continuoustesting-Loans')
     {
         git 'https://github.com/selenium-saikrishna/FunctionalTesting.git'
-    }
-    stage('ContinuousDelivery')
-    {
-        input message: 'Waiting for Approval from DM !', submitter: 'Srinivas'
-        sh 'scp /home/vagrant/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war vagrant@10.1.1.6:/var/lib/tomcat7/webapps/prodenv.war'
     }
     
     
