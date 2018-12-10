@@ -1,3 +1,1 @@
-new changes
-done by developers
-
+New changes done by developers
