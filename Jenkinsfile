@@ -1,32 +1,24 @@
 node('master') 
 {
-    stage('ContinuousDownload')
+    stage('Cont_download') 
     {
        git 'https://github.com/selenium-saikrishna/maven.git'
     }
-    stage('ContinuousBuild')
+    stage('Cont_build') 
     {
-       sh 'mvn package'
+       sh label: '', script: 'mvn package'
     }
-    stage('ContinuousDeployment')
+    stage('Cont_Deployment')
     {
-        sh 'scp /home/vagrant/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war vagrant@10.0.0.8:/var/lib/tomcat7/webapps/qaenv.war'
+       sh label: '', script: 'scp /home/ubuntu/.jenkins/workspace/Pipe/webapp/target/webapp.war ubuntu@172.31.43.180:/var/lib/tomcat7/webapps/qaenv.war' 
     }
-    stage('ContinuousTesting')
+    stage('Cont_Testing')
     {
         git 'https://github.com/selenium-saikrishna/TestingNew.git'
-        sh 'java -jar /home/vagrant/.jenkins/workspace/ScriptedPipeline/testing.jar'
     }
-    stage('ContinuousDelivery')
+    stage('Cont_Delivery')
     {
-        input message: 'Waiting for approval from Delivery Manager!', submitter: 'Venu'
-        sh 'scp /home/vagrant/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war vagrant@10.0.0.9:/var/lib/tomcat7/webapps/newprod.war'
+        input message: 'Waiting for Approval', submitter: 'srinivas'
+        sh label: '', script: 'scp /home/ubuntu/.jenkins/workspace/Pipe/webapp/target/webapp.war ubuntu@172.31.42.143:/var/lib/tomcat7/webapps/prodenv.war' 
     }
-    
-    
-    
-    
-    
-
-   
 }
