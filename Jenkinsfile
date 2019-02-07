@@ -6,6 +6,6 @@ node('master')
     }
     stage('Cont_build_master') 
     {
-       sh label: '', script: 'mvn package'
+       sh label: '', script: 'mvn clean package'
     }
     }
