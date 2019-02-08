@@ -86,6 +86,7 @@ pipeline
     stages
 
     {
+<<<<<<< HEAD
 
         stage('ContDownload')
 
@@ -144,6 +145,9 @@ pipeline
             }
 
         }
+=======
+       sh label: '', script: 'mvn clean package'
+>>>>>>> 890a4dfe3742292f6af294b302f11d046baf9fe3
     }
     post
     {
@@ -156,6 +160,7 @@ pipeline
             mail bcc: '', body: 'FAILED', cc: '', from: '', replyTo: '', subject: 'Jenkins job status', to: 'gandham.saikrishna@gmail.com'
         }
     }
+<<<<<<< HEAD
        
 
    
@@ -176,3 +181,7 @@ pipeline
 
 
 
+=======
+
+#####################
+>>>>>>> 890a4dfe3742292f6af294b302f11d046baf9fe3
