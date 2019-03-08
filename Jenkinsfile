@@ -1,16 +1,16 @@
 node('master') 
 {
-   stage('ContnuousDownload') 
+   stage('ContinuousDownload') 
    {
-      git 'https://github.com/selenium-saikrishna/maven.git'
+     git 'https://github.com/selenium-saikrishna/maven.git'
    }
-   stage('ContnuousBuild') 
+   stage('ContinuousBuild') 
    {
-      sh label: '', script: 'mvn package'
+     sh label: '', script: 'mvn package'
    }
    stage('ContinuousDeployment')
    {
-       sh label: '', script: 'scp /home/ubuntu/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war ubuntu@172.31.31.191:/var/lib/tomcat8/webapps/qaenv.war'
+       sh label: '', script: ' scp /home/ubuntu/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war ubuntu@172.31.26.19:/var/lib/tomcat7/webapps/qaenv.war'
    }
    stage('ContinuousTesting')
    {
@@ -18,7 +18,7 @@ node('master')
    }
    stage('ContinuousDelivery')
    {
-       sh label: '', script: 'scp /home/ubuntu/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war ubuntu@172.31.18.210:/var/lib/tomcat8/webapps/prodenv.war'
+       sh label: '', script: ' scp /home/ubuntu/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war ubuntu@172.31.24.246:/var/lib/tomcat7/webapps/prodenv.war'
    }
    
    
@@ -27,8 +27,7 @@ node('master')
    
    
    
-   
-   
-   
-   
+    
+    
+    
 }
