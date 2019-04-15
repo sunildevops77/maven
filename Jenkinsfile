@@ -2,8 +2,9 @@ node('master')
 {
     stage('ContinuousDownload') 
     {
-        git 'https://github.com/selenium-saikrishna/maven.git'
+      git 'https://github.com/selenium-saikrishna/maven.git'
     }
+    
     stage('ContinuousBuild')
     {
         sh label: '', script: 'mvn package'
@@ -15,12 +16,16 @@ node('master')
     stage('ContinuousTesting')
     {
         git 'https://github.com/selenium-saikrishna/TestingNew.git'
-        sh label: '', script: 'echo "Testing Passed"'
+        sh label: '', script: 'java -jar /home/ubuntu/.jenkins/workspace/ScriptedPipeline/testing.jar'
+        
     }
-    
     stage('ContinuousDelivery')
     {
+        input message: 'Waiting for Approval from Delivery Team', submitter: 'Ravi'
         sh label: '', script: 'scp /home/ubuntu/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war ubuntu@172.31.20.249:/var/lib/tomcat8/webapps/prodenv.war'
     }
+    
+    
+    
     
 }
