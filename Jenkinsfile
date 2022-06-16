@@ -1,8 +1,8 @@
-node('master') 
+node('slavebranch') 
 {
-    stage('Continuous Download_master') 
+    stage('Continuous Download_sales') 
 	{
-    git 'https://github.com/sunildevops77/maven.git'
+    git 'https://github.com/kiran-113/maven.git'
 	}
     stage('Continuous Build') 
 	{
