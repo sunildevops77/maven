@@ -14,7 +14,7 @@ sh label: '', script: 'scp /home/ubuntu/.jenkins/workspace/ScriptedPipeline/weba
 	}
     stage('Continuous Testing') 
 	{
-              sh label: '', script: 'echo "Testing Passed"'
+              sh label: '', script: 'echo "Testing Passed again"'
 	}
     stage('Continuous Delivery') 
 	{
