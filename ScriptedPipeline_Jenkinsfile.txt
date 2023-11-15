@@ -31,3 +31,9 @@ node('master')
   
   
 }
+
+
+ci cd 
+
+
+continous integration
