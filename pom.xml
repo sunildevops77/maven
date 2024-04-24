@@ -55,6 +55,13 @@
         <artifactId>maven-site-plugin</artifactId>
         <configuration>
           <reportPlugins>
+         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin -->
+     <plugins>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-enforcer-plugin</artifactId>
+    <version>3.4.1</version>
+     </plugins>
+
             <plugin>
               <artifactId>maven-checkstyle-plugin</artifactId>
             </plugin>
